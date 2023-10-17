@@ -92,6 +92,3 @@ urlpatterns = [
     path('user-list/', user_list, name='user-list'),
     path('active-user/', active_user, name='active-user'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
