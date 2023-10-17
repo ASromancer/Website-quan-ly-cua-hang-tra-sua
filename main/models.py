@@ -180,5 +180,5 @@ class Receipt(models.Model):
         return f"Receipt #{self.pk}"
 
 
-admin_group, _ = Group.objects.get_or_create(name='admin_group')
-staff_group, _ = Group.objects.get_or_create(name='staff_group')
+# admin_group, _ = Group.objects.get_or_create(name='admin_group')
+# staff_group, _ = Group.objects.get_or_create(name='staff_group')
