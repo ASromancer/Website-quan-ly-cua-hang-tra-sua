@@ -1,11 +1,9 @@
 from django.conf.urls.static import static
 from django.urls import path, include
 from django.conf import settings
-from rest_framework import routers, permissions
 
 
-from .views import CategoryViewSet, ProductViewSet, IngredientViewSet, RecipeViewSet, RecipeIngredientViewSet, \
-    OrderViewSet, OrderItemViewSet, OrderToppingViewSet, ToppingViewSet, SizeViewSet, ReceiptViewSet, sugar_list, \
+from .views import sugar_list, \
     create_sugar, delete_sugar, update_sugar, ice_list, create_ice, update_ice, delete_ice
 from .views import dashboard, CategoryListView, create_category, create_product, IngredientListView, \
     create_ingredient, RecipeListView, product_recipe_ingredients, \

@@ -10,11 +10,8 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.db.models import Prefetch
 from django.db.models.functions import ExtractWeek, ExtractMonth
 from django.template.loader import get_template, render_to_string
-from rest_framework import viewsets
 from datetime import date, datetime, timedelta
-from .serializers import CategorySerializer, ProductSerializer, IngredientSerializer, RecipeSerializer, \
-    RecipeIngredientSerializer, OrderSerializer, OrderItemSerializer, OrderToppingSerializer, ToppingSerializer, \
-    SizeSerializer, ReceiptSerializer
+
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
@@ -1055,60 +1052,3 @@ def active_user(request):
 
     # Return a JSON response indicating failure
     return JsonResponse({'status': 'failure'})
-
-
-################################
-# DRF
-class CategoryViewSet(viewsets.ModelViewSet):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-
-
-class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-
-
-class IngredientViewSet(viewsets.ModelViewSet):
-    queryset = Ingredient.objects.all()
-    serializer_class = IngredientSerializer
-
-
-class RecipeViewSet(viewsets.ModelViewSet):
-    queryset = Recipe.objects.all()
-    serializer_class = RecipeSerializer
-
-
-class OrderViewSet(viewsets.ModelViewSet):
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
-
-
-class ToppingViewSet(viewsets.ModelViewSet):
-    queryset = Topping.objects.all()
-    serializer_class = ToppingSerializer
-
-
-class SizeViewSet(viewsets.ModelViewSet):
-    queryset = Size.objects.all()
-    serializer_class = SizeSerializer
-
-
-class ReceiptViewSet(viewsets.ModelViewSet):
-    queryset = Receipt.objects.all()
-    serializer_class = ReceiptSerializer
-
-
-class RecipeIngredientViewSet(viewsets.ModelViewSet):
-    queryset = RecipeIngredient.objects.all()
-    serializer_class = RecipeIngredientSerializer
-
-
-class OrderItemViewSet(viewsets.ModelViewSet):
-    queryset = OrderItem.objects.all()
-    serializer_class = OrderItemSerializer
-
-
-class OrderToppingViewSet(viewsets.ModelViewSet):
-    queryset = OrderTopping.objects.all()
-    serializer_class = OrderToppingSerializer
