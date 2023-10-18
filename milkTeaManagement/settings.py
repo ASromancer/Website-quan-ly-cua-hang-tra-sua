@@ -78,13 +78,13 @@ DATABASES = {
     }
 }
 
-DATABASES = {
-    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
-}
-
 # DATABASES = {
-#     "default": dj_database_url.parse("postgres://milkteamanagement_user:n3tsK2d0HI7QVc4cevbNhewljXIWkPtj@dpg-cklupuav7m0s73dnue50-a.singapore-postgres.render.com/milkteamanagement")
+#     "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 # }
+
+DATABASES = {
+    "default": dj_database_url.parse("postgres://milkteamanagement_user:n3tsK2d0HI7QVc4cevbNhewljXIWkPtj@dpg-cklupuav7m0s73dnue50-a.singapore-postgres.render.com/milkteamanagement")
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -119,8 +119,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL="/media/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'login'
