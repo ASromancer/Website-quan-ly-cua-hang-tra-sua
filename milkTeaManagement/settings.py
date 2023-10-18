@@ -15,15 +15,15 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECRET_KEY = os.environ.get("SECRET_KEY")
-#
-# DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
-#
-# ALLOWED_HOSTS = ['milkteamanagement.onrender.com']
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
-SECRET_KEY = 123
-DEBUG = True
-ALLOWED_HOSTS = []
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+
+ALLOWED_HOSTS = ['milkteamanagement.onrender.com']
+
+# SECRET_KEY = 123
+# DEBUG = True
+# ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
@@ -81,13 +81,13 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
-# }
-
 DATABASES = {
-    "default": dj_database_url.parse("postgres://milkteamanagement_user:n3tsK2d0HI7QVc4cevbNhewljXIWkPtj@dpg-cklupuav7m0s73dnue50-a.singapore-postgres.render.com/milkteamanagement")
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+# DATABASES = {
+#     "default": dj_database_url.parse("postgres://milkteamanagement_user:n3tsK2d0HI7QVc4cevbNhewljXIWkPtj@dpg-cklupuav7m0s73dnue50-a.singapore-postgres.render.com/milkteamanagement")
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
