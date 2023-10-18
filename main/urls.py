@@ -1,4 +1,5 @@
 from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 from django.conf import settings
 
@@ -92,3 +93,5 @@ urlpatterns = [
     path('user-list/', user_list, name='user-list'),
     path('active-user/', active_user, name='active-user'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
