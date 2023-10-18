@@ -93,5 +93,3 @@ urlpatterns = [
     path('user-list/', user_list, name='user-list'),
     path('active-user/', active_user, name='active-user'),
 ]
-
-urlpatterns += staticfiles_urlpatterns()
