@@ -9,7 +9,6 @@ class UniqueFieldsForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super().clean()
         if self.instance.pk is None:
-            # Form đang được sử dụng để tạo một bản ghi mới
             for field_name in self.Meta.unique_fields:
                 value = cleaned_data.get(field_name)
                 if value and self.Meta.model.objects.filter(**{field_name: value}).exists():
