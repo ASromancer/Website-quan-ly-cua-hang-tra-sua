@@ -94,4 +94,3 @@ urlpatterns = [
     path('active-user/', active_user, name='active-user'),
 ]
 
-urlpatterns += staticfiles_urlpatterns()
