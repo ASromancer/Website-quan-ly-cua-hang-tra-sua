@@ -322,7 +322,7 @@
                 alert("Quantity is lower than 0")
                 return false;
             }
-            if ($('[name="tax"]').val() <= 0) {
+            if ($('[name="tax"]').val() < 0) {
                 alert("Tax is lower than 0")
                 return false;
             }
