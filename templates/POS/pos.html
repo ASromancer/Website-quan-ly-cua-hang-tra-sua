@@ -270,6 +270,10 @@
                 alert("Product and Quantity Field is required!");
                 return false;
             }
+            if (qty <= 0) {
+                alert("Quantity is lower than 0!");
+                return false;
+            }
             if (!!prod_arr[id]) {
                 var tr = $($('noscript#item-clone').html()).clone();
                 tr.find('[name="qty[]"]').val(qty);
@@ -314,8 +318,16 @@
                 alert("Add at least 1 product first!");
                 return false;
             }
-            if ($('[name="tax"]').val() < 0) {
-                alert("Tax if lower than 0")
+            if ($('[name="product-qty"]').val() <= 0) {
+                alert("Quantity is lower than 0")
+                return false;
+            }
+            if ($('[name="tax"]').val() <= 0) {
+                alert("Tax is lower than 0")
+                return false;
+            }
+            if ($('[name="qty[]"]').val() <= 0) {
+                alert("Quantity is lower than 0")
                 return false;
             }
             uni_modal("Checkout", "{% url 'checkout-modal' %}?grand_total=" + $('[name="grand_total"]').val());
