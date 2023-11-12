@@ -962,6 +962,10 @@ def get_orders_by_date_range(request):
         from_date = request.GET.get('from_date')
         to_date = request.GET.get('to_date')
 
+        # Check if to_date is provided and not before from_date
+        if to_date and to_date < from_date:
+            return JsonResponse({'error': 'Invalid date range. to_date must not be before from_date'})
+
         orders = Order.objects.filter(date_added__gte=from_date, date_added__lte=to_date).order_by('date_added')
 
         total_revenue = orders.aggregate(Sum('grand_total'))['grand_total__sum']
